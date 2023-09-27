@@ -30,7 +30,7 @@ const recipeschema = new mongoose.Schema({
     difficulty: String,
     author: {
         type: mongoose.Schema.Types.ObjectId,   
-        ref: 'user'
+        ref: 'users'
     } 
 },
 {

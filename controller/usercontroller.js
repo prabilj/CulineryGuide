@@ -21,9 +21,19 @@ exports.createUser = async (req, res) => {
             phone
         })
         const savedUser = await newUser.save()
-        res.status(201).json(savedUser)
+        res.status(201).json({
+            code:200,
+            status:"success",
+            message: 'user created sucessfully',
+            data: savedUser
+        })
     } catch (error){
-        res.status(500).json({error: 'An error occured while creating the user.' })
+        console.log(error)
+        res.status(500).json({
+            code:400,
+            status:"error",
+            message: 'An error occured while creating the user.'
+        })
     }
 }
 

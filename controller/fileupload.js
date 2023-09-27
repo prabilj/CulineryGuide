@@ -4,11 +4,17 @@ const  model  = require('mongoose');
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 require('dotenv').config();
+const accessKeyId = process.env.aws_access_key_id;
+const secretAccessKey = process.env.aws_secret_access_key;
+
+console.log(accessKeyId,secretAccessKey)
 
 aws.config.update({
-    accessKeyId: 'AKIATMWJY32R3ZRNKWOW',
-    secretAccessKey: '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',
+    accessKeyId: accessKeyId,
+    secretAccessKey: secretAccessKey
   });
+
+
 
 const s3 = new aws.S3
 const fileupload = async (req, res) => {

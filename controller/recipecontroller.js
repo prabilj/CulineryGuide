@@ -24,16 +24,22 @@ exports.getAllRecipes = async (req, res) => {
     exports.getRecipesDetails = async (req, res) => {
         try {
             const recipesId = req.params.id
-            const recipes = await Recipe.findById(recipesId)
+            const recipes = await Recipe.findById(recipesId).populate('author','username')
             
             if (recipes) {
-                res.status(200).json(recipes)
+                res.status(200).json({
+                    code: 200,
+                    status: "success",
+                    message: "recipe data fetched successfully",
+                    data: recipes
+             })
             }
             else {
                 res.status(400).json({ message: 'Recipe found'})
             }
         }
         catch (error) {
+            console.log(error)
             res.status(500).json({ error: 'Error fetching recipe'})
         }
     }
