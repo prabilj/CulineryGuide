@@ -1,6 +1,6 @@
 const mongoose =require ("mongoose")
 
-const mongoDbUri = "mongodb+srv://prabil:Prabil9154@cluster0.waqg6jm.mongodb.net/receipeapp"
+const mongoDbUri = "mangodb url"
 
 mongoose.connect(mongoDbUri, {
     useNewUrlParser: true,
