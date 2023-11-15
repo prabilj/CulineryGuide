@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const recipeschema = new mongoose.Schema({
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        require: true
+    },
     title: {
         type: String,
         required: true
@@ -26,7 +30,11 @@ const recipeschema = new mongoose.Schema({
         required: true
     },
     imageUrl: String,
-    categories: [String],
+    category: {
+        type: mongoose.Schema.Types.ObjectId,   
+        ref: 'Category',
+        required: true
+    } ,
     difficulty: String,
     author: {
         type: mongoose.Schema.Types.ObjectId,   

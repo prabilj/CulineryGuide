@@ -22,13 +22,13 @@ try{
     const { originalname, buffer } = req.file;
     console.log(buffer)
     const params = {
-      Bucket: "prabil-bucket",
+      Bucket: "blogsphere-ab",
       ACL: "public-read",
       ContentType: req.file.mimetype,
-      Key: originalname,
+      Key: `prabil/${originalname}`,
       Body: buffer
     };
-
+     
     const uploadedFile = await s3.upload(params).promise();
     const params1 = {
       Image: uploadedFile.Location
@@ -50,4 +50,4 @@ try{
 
 }
  
-module.exports.fileupload=fileupload
+module.exports.fileupload=fileupload  

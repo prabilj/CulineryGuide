@@ -3,28 +3,13 @@ const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 require('dotenv').config();
-// const dotenv = require('dotenv')
-//const Password = process.env.password
-//const email = process.env.email
+
 
 
 async function generateResetToken() {
     return crypto.randomBytes(20).toString('hex');
 }
 
-// const sendPasswordResetEmail = async (email, resetToken) => {
-//     console.log(process.env.password)
-//     let password = process.env.password
-//     let senderemail = process.env.email
-
-//     const transporter = nodemailer.createTransport({
-//         service: 'Gmail',
-//         auth: {
-//             user: senderemail,
-//             password: password
-//         }
-        
-//     });
     const sendPasswordResetEmail = async (email, resetToken) => {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
